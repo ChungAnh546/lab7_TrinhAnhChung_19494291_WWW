@@ -10,7 +10,7 @@ import java.util.List;
         @NamedQuery(name = "Customer.getAll",query = "select c from Customer c")
 
 })
-public class Customer {
+public class    Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cust_id")
