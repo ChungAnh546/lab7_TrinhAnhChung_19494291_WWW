@@ -3,6 +3,7 @@ package vn.edu.iuh.fit.lab_7.backend.models;
 import jakarta.persistence.*;
 import vn.edu.iuh.fit.lab_7.backend.enums.ProductStatus;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
         @NamedQuery(name = "Product.findById", query = "select p from Product p where p.product_id = ?1")
         //,...1
 })
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")

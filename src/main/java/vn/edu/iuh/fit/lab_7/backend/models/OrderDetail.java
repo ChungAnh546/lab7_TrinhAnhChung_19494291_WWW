@@ -3,10 +3,12 @@ package vn.edu.iuh.fit.lab_7.backend.models;
 import jakarta.persistence.*;
 import vn.edu.iuh.fit.lab_7.backend.pks.OrderDetailPK;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "order_detail")
 @IdClass(OrderDetailPK.class)
-public class OrderDetail {
+public class OrderDetail implements Serializable {
     @Column(name = "quantity", nullable = false)
     private double quantity;
     @Column(name = "price", nullable = false)

@@ -2,9 +2,11 @@ package vn.edu.iuh.fit.lab_7.backend.models;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "product_image")
-public class ProductImage {
+public class ProductImage  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "image_id")

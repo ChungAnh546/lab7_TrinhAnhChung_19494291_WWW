@@ -93,12 +93,7 @@ public class HomeController {
 
     }
 
-    @GetMapping("/products")
-    public String showProductPaging(Model model) {
 
-        return "products/products";
-
-    }
     @GetMapping("/buy/{id}")
     public String buyAction(HttpSession session, @PathVariable("id") long id){
 
@@ -111,14 +106,20 @@ public class HomeController {
             lsproduct = (ArrayList<Product>) obj;
         }
         lsproduct.add(product.get());
+        session.setAttribute("cart",lsproduct);
 
-
-        return "index";
+        return "redirect:/";
     }
-    @GetMapping("/checkout")
+    @GetMapping("/products")
     public String checkout(Model model,HttpSession session){
         List<Product> products = (List<Product>) session.getAttribute("cart");
         model.addAttribute("products",products);
         return "products/products";
+    }
+    @GetMapping("/pay")
+    public String pay(HttpSession session){
+        session.removeAttribute("cart");
+       //
+        return "redirect:/";
     }
 }
